@@ -18,20 +18,25 @@ var dashboardApp = new Vue({
         "team" : '',
         "status": '',
         "start_date": '',
-        "close_date": '',
+        "close_date": null,
         "hours_worked":'',
         "perc_complete": '',
         "current_sprint" : ''
       }
     ]
   },
+
   computed: {
     days_left: function() {
-      return moment(this.target_date).diff(momemet(), 'days');
+      return moment(this.target_date).diff(moment(), 'days');
     },
     pretty_target_date: function () {
       return this.pretty_date(this.target_date);
+    },
+    pretty_budget: function (val) {
+      return this.pretty_currency(this.budget);
     }
+
   },
 
   methods: {
@@ -46,7 +51,7 @@ var dashboardApp = new Vue({
     pretty_currency: function (val)
     {
       if(val <1e3) {return '$ ' + val}
-      if(val <1e6) {return '$ ' + (val/1e3).toFixed(1) + ' k'}
+      if(val <1e6) {return '$ ' + (val/1e3).toFixed(1) + ' K'}
         return '$ ' + (val/1e6).toFixed(1) + ' M'
     },
 
@@ -63,7 +68,7 @@ var dashboardApp = new Vue({
       console.log(this.tasks);
   })
       .catch(function (err) {
-        console.log('FETCH ERROR:');
+        console.log('TASK FETCH ERROR:');
         console.log(err);
       })
     }
