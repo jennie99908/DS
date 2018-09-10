@@ -113,6 +113,13 @@ section .ban {
     }
 
     /**Table Sort css **/
+#tasktable > tbody > tr{
+  border-left:  12 px solid #eee;
+}
+#tasktable > tbody > tr.current_sprint {
+  border-left: : 12px sold rgb[35,95,163];
+}
+
 th[role=columnheader]:not(.no-sort) {
 	cursor: pointer;
 }

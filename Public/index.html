@@ -6,42 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="stylesheet" href="style.css"/>
-    <title>About Me</title>
-    <nav>
-    <label for="homepage"><a href="index.html" id="coverpage">Home</a></label>
-    <a href="description.html">Description</a>
-    <a href="statistics.html">Statistics</a>
-  </nav>
-    <!--give ID to switch view  -->
+    <link rel="stylesheet" href="css/dashboard.css" />
 
+    <title>Project Dashboard</title>
   </head>
   <body>
-    <div class="container-fluid">
-      <h1>Come Meet Rolf Hegdal</h1>
-    </br>
+
+    <div id="dashboard" class="container-fluid">
+      <h1>{{ name }}</h1>
+      <p><em>{{ short_description }}</em></p>
       <div class="row">
-        <div class="col">
-          <a target="_blank" href="Hello.jpg">
-            <img src="Hello.jpg" alt="CoverPicture">
-          </a>
-
+        <div class="col placeholder">
+          Completion %
         </div>
+        <section id="target-date" class="col placeholder">
+          <h2>Target Date</h2>
+          <div>
+            <span class="label">Days:</span>
+            <span class="data-big time-med">17</span>
+          </div>
+          <div>
+            <span class="data-big">{{ pretty_date(target_date) }}</span>
+          </div>
+        </section>
+        <div class="col placeholder">
+          Status
+        </div>
+      </div> <!-- end row 1, high-level summary information -->
+
+      <div class="row">
+        <div class="col placeholder" style="height:200px">
+          Budget chart goes here.
+        </div>
+        <div class="col placeholder">
+          Burndown chart goes here.
+        </div>
+        <div class="col placeholder">
+          Effort chart goes here.
+        </div>
+      </div> <!-- end row 2, charts -->
+
+      <div class="row">
+        <table id="taskTable" class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>
+                Task
+              </th>
+              <th>
+                Size
+              </th>
+              <th>
+                Team Name
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="task in tasks"
+            :key="task.id"
+            :id="'task-' + task.id"
+            :class="task.current_sprint?'current_sprint':''">
+              <td>{{ task.title }}</td>
+              <td>{{ task.size }}</td>
+              <td>{{ task.team }}</td>
+              <td>{{ task.status }}</td>
+              <td>{{ task.start_date}}</td>
+              <td>{{ task.close_date }}</td>
+              <td>{{ task.hours_worked }}</td>
+              <td>{{ task.perc_complete }}</td>
+              <td :class="complete_class(task)">{{ task.current_sprint }}</td>
+
+            </tr>
+          </tbody>
+        </table>
+
+      </div> <!-- end row 3, tabular data -->
+
+      <div class="row">
+        <button v-on:click="log('foo')">Click Me</button>
       </div>
-
-
-
-
-
-
-
     </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="js/dashboard.app.js"></script>
+    <script src="js/tablesort.min.js"></script>
+    <script>
+      // Tablesort plugin from http://tristen.ca/tablesort/demo/
+      new Tablesort(document.getElementById('taskTable'));
+    </script>
 
   </body>
 </html>
-
-<!--image citation-->
-<!-- ProfilePicture: https://www.wonderslist.com/top-10-oldest-cartoon-characters/-->
-<!-- CoverPicture:https://www.eurodiaconia.org/es/2016/02/welcome-to-the-two-new-members-of-our-family/-->
