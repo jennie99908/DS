@@ -115,6 +115,7 @@ section .ban {
     /**Table Sort css **/
     #taskTable > tbody > tr{
       border-left:  12px solid #eee;
+      cursor: pointer;;
     }
 #taskTable > tbody > tr.current_sprint {
   border-left: 12px solid rgb(35, 95, 163);

@@ -71,6 +71,9 @@ var dashboardApp = new Vue({
         console.log('TASK FETCH ERROR:');
         console.log(err);
       })
+    },
+    gotoTask(tid) {
+      window.location = 'task.html?taskId=' + tid;
     }
     },
     mounted ()
