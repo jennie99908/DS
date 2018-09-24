@@ -1,0 +1,12 @@
+<?php
+require '../../app/common.php';
+
+
+// Get the taskId from URL params
+$taskId = intval($_GET['taskId'] ?? 0);
+
+//Fetch the work from the // DEBUG:
+$work = Work::findByTaskId($taskID);
+
+//convert to json and print
+echo json_encode($work);
