@@ -6,7 +6,7 @@ require '../../app/common.php';
 $taskId = intval($_GET['taskId'] ?? 0);
 
 //Fetch the work from the // DEBUG:
-$work = Work::findByTaskId($taskID);
+$work = Work::findByTaskId($taskId);
 
 //convert to json and print
 echo json_encode($work);
