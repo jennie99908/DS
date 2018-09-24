@@ -8,7 +8,7 @@ class Work{
   public $stop_date;
   public $hours;
 
-  public function_construct($data) {
+  public function _construct($data) {
     //TODO:!
   }
 
