@@ -21,9 +21,7 @@ class Work{
   public static function findByTaskId($taskId){
     //1. Get Db connection_aborted
     $db = new PDO (DB_SERVER, DB_USER, DB_PW);
-    var_dump($db);
-
-    die;
+    
 
     //2. Prepare SQL Statement
     //3. Rxecute statement
