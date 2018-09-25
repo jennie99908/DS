@@ -1,15 +1,21 @@
 <?php
 
 class Work{
-  public $work_id;
+  public $id;
   public $team_id;
   public $task_id;
-  public $start_date;
-  public $stop_date;
+  public $start;
+  public $stop;
   public $hours;
+  public $completion_estimate;
 
-  public function _construct($data) {
-    //TODO:!
+  public function __construct($data) {
+    $this->work_id = $data['work_id'];
+    $this->team_id = $data['team_id'];
+    $this->task_id = $data['task_id'];
+    $this->start_date = $data['start_date'];
+    $this->end_date = $data['end_date'];
+    $this->hours = 0;
   }
 
   public static function findByTaskId($taskId){
