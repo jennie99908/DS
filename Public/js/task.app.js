@@ -31,7 +31,6 @@ var tasksApp = new Vue({
 
       // TODO: Check validity
 
-
       console.log(e);
 
       // TODO: Calculate hours
