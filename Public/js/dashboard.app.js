@@ -58,7 +58,6 @@ var dashboardApp = new Vue({
     fetchTasks () {
       fetch('https://raw.githubusercontent.com/tag/iu-msis/dev/public/p1-tasks.json')
       .then( response => response.json() )
-      // ^ This is the same as .then( function(response) {return response.json()} )
       .then( json => {dashboardApp.tasks = json} )
       .catch( err => {
         console.log('TASK FETCH ERROR:');
@@ -75,6 +74,7 @@ var dashboardApp = new Vue({
       })
     },
     gotoTask(tid) {
+      // alert ('Clicked: ' + tid)
       window.location = 'task.html?taskId=' + tid;
     }
   },
