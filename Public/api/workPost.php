@@ -1,8 +1,6 @@
 <?php
 
-var_dump($_Post);
-
-$work = new Work($_Post);
+$work = new Work($_POST);
 
 $work->create();
 
