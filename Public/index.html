@@ -54,8 +54,8 @@
         <div class="col placeholder" style="height:200px">
           Burndown chart goes here.
         </div>
-        <div class="col placeholder">
-          Effort chart goes here.
+        <div class="col">
+          <div id="effortChart"></div>
         </div>
       </div> <!-- end row 2, charts -->
 
@@ -98,8 +98,14 @@
 
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- Load Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <!-- My Vue Controller file: -->
     <script src="js/dashboard.app.js"></script>
 
+    <!-- Table sort scripts -->
     <script src="js/tablesort.min.js"></script>
     <script>
       // Tablesort plugin from http://tristen.ca/tablesort/demo/

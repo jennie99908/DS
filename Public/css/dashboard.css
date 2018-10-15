@@ -8,7 +8,7 @@ section {
   text-align:center;
 }
 
-section h2 {
+section h2, .highcharts-title {
   font-size: 10pt;
   text-transform: uppercase;
   color: #999;
@@ -21,6 +21,11 @@ section .ban {
   color: rgb(35, 95, 163);
   font-weight: bold;
   margin-top: 0;
+}
+
+#effortChart {
+  height: 250px;
+
 }
 
 #taskTable > tbody > tr {

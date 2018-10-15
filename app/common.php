@@ -11,6 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'
 require 'environment.php';
 
 /** MODELS **/
-require 'models/Work.php';
 require 'models/Team.php';
+require 'models/Work.php';
 require 'models/WorkHoursReport.php';
